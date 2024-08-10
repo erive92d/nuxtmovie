@@ -1,6 +1,5 @@
 "use client"
 import Nav from "@/components/Home/Nav";
-import NowPlaying from "@/components/Home/NowPlaying";
 import Results from "@/components/Movies/Results";
 import { useDebounce } from "@/helper/useDebounce";
 import { MovieProps } from "@/lib/globalProps";
@@ -41,7 +40,7 @@ export default function Home() {
     <div className="">
       <Nav onSearch={(query) => setSearchTerm(query)} />
       {searchedMovies ?
-        <Results results={searchedMovies} /> :
+        <Results searchTerm={searchTerm} results={searchedMovies} /> :
         null
       }
       {error && <h1 className="text-red-500">{error}</h1>}

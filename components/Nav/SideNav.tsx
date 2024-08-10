@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function SideNav() {
     return (
-        <div className='bg-black w-1/6 py-8 space-y-8 border-r border-gray-600'>
+        <div className='bg-gray-900 w-1/6 py-8 space-y-8 border-r border-gray-600'>
             <div className='text-center'>
                 <h1 className='btn btn-ghost text-2xl text-green-600'>
                     NuxtMovie

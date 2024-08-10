@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-950 min-h-screen flex`}>
+      <body className={`${inter.className} bg-gray-900 min-h-screen flex`}>
         <SideNav />
         <div className="w-5/6">
           {children}
