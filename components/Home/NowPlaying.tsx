@@ -17,10 +17,10 @@ export default async function NowPlaying() {
             <h1 className='py-4 text-2xl font-bold'>
                 Now Playing
             </h1>
-            <div className='grid grid-cols-4 gap-4'>
+            <div className='grid grid-cols-4 gap-8'>
                 {results && results.map((movie, index) => (
-                    <div className='' key={index}>
-                        <Image alt="movie_image" className='rounded-xl' height={450} width={250} src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+                    <div className='relative w-[280px] h-[280px] ' key={index}>
+                        <Image alt="movie_image" className='rounded-lg' fill src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
                     </div>
                 ))}
             </div>
