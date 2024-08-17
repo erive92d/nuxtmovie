@@ -2,6 +2,7 @@ import { MovieProps } from '@/lib/globalProps'
 import Image from 'next/image'
 
 export default async function NowPlaying() {
+
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.MOVIE_API_KEY}`
 
     const data = await fetch(url)
