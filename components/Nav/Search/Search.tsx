@@ -39,11 +39,13 @@ export default function Search() {
             }
         }
     }), [debouncedSearchTerm]
+
+
     return (
         <div className="relative">
             <InputSearch isLoading={loading} onSearch={(query) => setSearchTerm(query)} />
-            {searchedMovies ?
-                <Results searchTerm={searchTerm} results={searchedMovies} /> :
+            {searchedMovies?.length ?
+                <Results results={searchedMovies} /> :
                 null
             }
             {error && <h1 className="text-red-500">{error}</h1>}
