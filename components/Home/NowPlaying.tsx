@@ -1,27 +1,20 @@
 import { MovieProps } from '@/lib/globalProps'
+import { getNowPlayingMovies } from '@/lib/movieApi'
 import Image from 'next/image'
 
 export default async function NowPlaying() {
 
-    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.MOVIE_API_KEY}`
-
-    const data = await fetch(url)
-
-    const { results }: { results: MovieProps[] } = await data.json()
-
-    if (!results) {
-        throw new Error("Could not fetch Now Playing")
-    }
+    const movies: MovieProps[] = await getNowPlayingMovies()
 
     return (
-        <div className='px-8 py-10'>
-            <h1 className='py-4 text-2xl font-bold'>
+        <div>
+            <h1 className='py-4 text-2xl text-white font-bold'>
                 Now Playing
             </h1>
-            <div className='grid grid-cols-4 gap-8'>
-                {results && results.map((movie, index) => (
-                    <div className='relative w-[280px] h-[280px] ' key={index}>
-                        <Image alt="movie_image" className='rounded-lg' fill src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+            <div className="carousel gap-4">
+                {movies && movies.map((movie, index) => (
+                    <div className='carousel-item ' key={index}>
+                        <Image alt="movie_image" height={100} width={200} src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
                     </div>
                 ))}
             </div>
