@@ -16,14 +16,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
   return (
     <html lang="en">
       <body className={`${inter.className} bg-black min-h-screen`}>
-        <TrendingMovie>
-          <Navbar />
-        </TrendingMovie>
+        <Navbar />
         {children}
       </body>
     </html>
